@@ -48,20 +48,13 @@ export const SetupInstructions: React.FC = ({}) => {
       <div className="h-[20.5rem] max-w-lg  pl-4 pr-2 sm:max-w-lg md:max-w-lg lg:h-[22.5rem]">
         {activeTab === "npm" ? (
           <>
-            <div className="flex items-center gap-2">
+            <div className="flex items-start gap-2">
+              <CopyButton text="npm install @formbricks/js" className="mt-6" />
               <CodeBlock>npm install @formbricks/js</CodeBlock>
-              <CopyButton text="npm install @formbricks/js" />
             </div>
-            <div className="flex items-center gap-2">
-              <CodeBlock>{`import formbricks from "@formbricks/js";
-
-if (typeof window !== "undefined") {
-  formbricks.init({
-    environmentId: "claV2as2kKAqF28fJ8",
-    apiHost: "https://app.formbricks.com",
-  });
-}`}</CodeBlock>
+            <div className="flex items-start gap-2">
               <CopyButton
+                className="mt-6"
                 text={`import formbricks from "@formbricks/js";
 
               if (typeof window !== "undefined") {
@@ -71,18 +64,27 @@ if (typeof window !== "undefined") {
                 });
 }`}
               />
+              <CodeBlock>{`import formbricks from "@formbricks/js";
+
+if (typeof window !== "undefined") {
+  formbricks.init({
+    environmentId: "claV2as2kKAqF28fJ8",
+    apiHost: "https://app.formbricks.com",
+  });
+}`}</CodeBlock>
             </div>
           </>
         ) : activeTab === "html" ? (
-          <div className="flex flex-col ">
-            <CodeBlock>{`<script type="text/javascript">
-!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@formbricks/js@^1.1.2/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.formbricks.init("claDadXk29dak92dK9","https://app.formbricks.com")},500)}();
-</script>`}</CodeBlock>
+          <div className="flex items-start gap-2 overflow-scroll">
             <CopyButton
+              className="mt-6"
               text={`<script type="text/javascript">
 !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@formbricks/js@^1.1.2/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.formbricks.init("claDadXk29dak92dK9","https://app.formbricks.com")},500)}();
 </script>`}
             />
+            <CodeBlock>{`<script type="text/javascript">
+!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@formbricks/js@^1.1.2/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.formbricks.init("claDadXk29dak92dK9","https://app.formbricks.com")},500)}();
+</script>`}</CodeBlock>
           </div>
         ) : null}
       </div>

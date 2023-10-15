@@ -2,15 +2,16 @@ import React from "react";
 
 interface CopyButtonProps {
   text: string;
+  className?: string;
 }
 
-const CopyButton: React.FC<CopyButtonProps> = ({ text }) => {
+const CopyButton: React.FC<CopyButtonProps> = ({ text, className }) => {
   const copyCode = () => {
     navigator.clipboard.writeText(text);
   };
 
   return (
-    <button onClick={copyCode} className=" text-black dark:text-white">
+    <button onClick={copyCode} className={`${className} text-black dark:text-white`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
