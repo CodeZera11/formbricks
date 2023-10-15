@@ -11,7 +11,9 @@ const CopyButton: React.FC<CopyButtonProps> = ({ text, className }) => {
   };
 
   return (
-    <button onClick={copyCode} className={`${className} text-black dark:text-white`}>
+    <button
+      onClick={copyCode}
+      className={`${className} text-black hover:text-blue-500 dark:text-white dark:hover:text-blue-500`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
